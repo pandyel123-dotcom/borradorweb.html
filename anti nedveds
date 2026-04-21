@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti Nedveds | Official Server</title>
+    <style>
+        :root { --neon-pink: #ff007f; --neon-purple: #bc13fe; --dark-bg: #050505; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { height: 100vh; display: flex; justify-content: center; align-items: center; background-color: var(--dark-bg); font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+        .bg-animate { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, #0f0c29, #200122, #000000, #310019); background-size: 400% 400%; animation: gradientMove 12s ease infinite; z-index: -2; }
+        @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .card { background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(20px); border: 2px solid var(--neon-pink); border-radius: 30px; padding: 40px 25px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 0 40px rgba(255, 0, 127, 0.4); position: relative; }
+        .profile-pic-container { width: 130px; height: 130px; margin: 0 auto 20px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 25px var(--neon-pink); overflow: hidden; }
+        .profile-pic-container img { width: 100%; height: 100%; object-fit: cover; }
+        h1 { color: #fff; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px var(--neon-pink); }
+        .tag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 25px 0; }
+        .tag { background: rgba(255, 255, 255, 0.07); color: #fff; padding: 12px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(255, 0, 127, 0.2); cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .tag:hover { background: var(--neon-pink); box-shadow: 0 0 15px var(--neon-pink); transform: translateY(-2px); }
+        .btn-join { display: block; background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple)); color: #fff; text-decoration: none; padding: 16px; border-radius: 50px; font-weight: bold; text-transform: uppercase; box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3); transition: 0.3s; }
+        .btn-join:hover { filter: brightness(1.2); letter-spacing: 1px; box-shadow: 0 0 30px var(--neon-pink); }
+        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1a1a; border: 2px solid var(--neon-pink); padding: 25px; border-radius: 20px; z-index: 100; width: 300px; text-align: center; box-shadow: 0 0 50px #000; }
+        .modal h2 { color: var(--neon-pink); margin-bottom: 10px; font-size: 1.2rem; }
+        .modal p { color: #eee; font-size: 0.9rem; margin-bottom: 15px; line-height: 1.4; }
+        .modal button { background: var(--neon-pink); border: none; color: white; padding: 8px 20px; border-radius: 10px; cursor: pointer; font-weight: bold; }
+        .overlay-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 99; }
+    </style>
+</head>
+<body>
+    <div class="bg-animate"></div>
+    <div class="card">
+        <div class="profile-pic-container"><img src="https://i.postimg.cc/DfP8c8Fg/antinedveds1.jpg" alt="Messi Perfil"></div>
+        <h1>Anti Nedveds</h1>
+        <div class="tag-grid">
+            <div class="tag" onclick="showInfo('TIPS GRL', 'Aprende los mejores métodos para subir el GRL de tu equipo rápidamente.')">📈 TIPS GRL</div>
+            <div class="tag" onclick="showInfo('PARTIDOS', 'Transmitimos en vivo los partidos más importantes de las mejores ligas.')">⚽ PARTIDOS</div>
+            <div class="tag" onclick="showInfo('REVIEWS', 'Análisis a fondo de cartas y eventos para que sepas qué jugadores valen la pena.')">⭐ REVIEWS</div>
+            <div class="tag" onclick="showInfo('SORTEOS', 'Realizamos sorteos épicos de vez en cuando para toda la comunidad.')">🎁 SORTEOS</div>
+        </div>
+        <a href="https://discord.gg/3937FpTDFc" target="_blank" class="btn-join">Entrar al Servidor</a>
+    </div>
+    <div class="overlay-modal" id="overlay" onclick="closeModal()"></div>
+    <div class="modal" id="modal"><h2 id="modal-title"></h2><p id="modal-desc"></p><button onclick="closeModal()">CERRAR</button></div>
+    <script>
+        function showInfo(title, desc) { document.getElementById('modal-title').innerText = title; document.getElementById('modal-desc').innerText = desc; document.getElementById('modal').style.display = 'block'; document.getElementById('overlay').style.display = 'block'; }
+        function closeModal() { document.getElementById('modal').style.display = 'none'; document.getElementById('overlay').style.display = 'none'; }
+    </script>
+</body>
+</html>
